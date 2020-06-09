@@ -2,53 +2,148 @@ import React, { Component } from 'react';
 import '../../App.css';
 
 class BoardTrading extends Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            'list': true,
+            'favourite': false,
+            'USDT': false,
+            'EFT': false,
+            'BTC':false,
+            'ETH': false,
+            'TRX': false,
+        }
+        this.click24HList = this.click24HList.bind(this);
+        this.clickFavourite = this.clickFavourite.bind(this);
+        this.clickUSDT = this.clickUSDT.bind(this);
+        this.clickBTC = this.clickBTC.bind(this);
+        this.clickEFT = this.clickEFT.bind(this);
+        this.clickETH = this.clickETH.bind(this);
+        this.clickTRX = this.clickTRX.bind(this);
+    }
     click24HList(){
-        document.getElementsByClassName("bold")[0].className = "";
-        document.getElementById("24HList").className = "bold";
-        document.getElementsByClassName("show")[0].className = "";
-        document.getElementById("table24HList").className = "show";
-
+        this.setState({
+            'list': true,
+            'favourite': false,
+            'USDT': false,
+            'EFT': false,
+            'BTC':false,
+            'ETH': false,
+            'TRX': false,
+        })
     }
     clickFavourite(){
-        document.getElementsByClassName("bold")[0].className = "";
-        document.getElementById("favourite").className = "bold";
-        document.getElementsByClassName("show")[0].className = "";
-        document.getElementById("tableFavourite").className = "show";
+        this.setState({
+            'list': false,
+            'favourite': true,
+            'USDT': false,
+            'EFT': false,
+            'BTC':false,
+            'ETH': false,
+            'TRX': false,
+        })
     }
     clickUSDT(){
-        document.getElementsByClassName("bold")[0].className = "";
-        document.getElementById("USDT").className = "bold";
-        document.getElementsByClassName("show")[0].className = "";
-        document.getElementById("tableUSDT").className = "show";
+        this.setState({
+            'list': false,
+            'favourite': false,
+            'USDT': true,
+            'EFT': false,
+            'BTC':false,
+            'ETH': false,
+            'TRX': false,
+        })
     }
     clickEFT(){
-        document.getElementsByClassName("bold")[0].className = "";
-        document.getElementById("EFT").className = "bold";
-        document.getElementsByClassName("show")[0].className = "";
-        document.getElementById("tableEFT").className = "show";
+        this.setState({
+            'list': false,
+            'favourite': false,
+            'USDT': false,
+            'EFT': true,
+            'BTC':false,
+            'ETH': false,
+            'TRX': false,
+        })
     }
     clickBTC(){
-        document.getElementsByClassName("bold")[0].className = "";
-        document.getElementById("BTC").className = "bold";
-        document.getElementsByClassName("show")[0].className = "";
-        document.getElementById("tableBTC").className = "show";
+        this.setState({
+            'list': false,
+            'favourite': false,
+            'USDT': false,
+            'EFT': false,
+            'BTC': true,
+            'ETH': false,
+            'TRX': false,
+        })
     }
     clickETH(){
-        document.getElementsByClassName("bold")[0].className = "";
-        document.getElementById("ETH").className = "bold";
-        document.getElementsByClassName("show")[0].className = "";
-        document.getElementById("tableETH").className = "show";
+        this.setState({
+            'list': false,
+            'favourite': false,
+            'USDT': false,
+            'EFT': false,
+            'BTC':false,
+            'ETH': true,
+            'TRX': false,
+        })
     }
     clickTRX(){
-        document.getElementsByClassName("bold")[0].className = "";
-        document.getElementById("TRX").className = "bold";
-        document.getElementsByClassName("show")[0].className = "";
-        document.getElementById("tableTRX").className = "show";
+        this.setState({
+            'list': false,
+            'favourite': false,
+            'USDT': false,
+            'EFT': false,
+            'BTC':false,
+            'ETH': false,
+            'TRX': true,
+        })
     }
     render(){
+        let className24HList = '';
+        let classNameFavourite = '';
+        let classNameUSDT = '';
+        let classNameEFT = '';
+        let classNameBTC = '';
+        let classNameETH = '';
+        let classNameTRX = '';
+        let classNameShow24HList = '';
+        let classNameShowFavourite = '';
+        let classNameShowUSDT = '';
+        let classNameShowEFT = '';
+        let classNameShowBTC = '';
+        let classNameShowETH = '';
+        let classNameShowTRX = '';
+        if(this.state.list){
+            className24HList += 'bold';
+            classNameShow24HList += 'show'
+        }
+        if(this.state.favourite){
+            classNameFavourite += 'bold';
+            classNameShowFavourite += 'show'
+        }
+        if(this.state.USDT){
+            classNameUSDT += 'bold';
+            classNameShowUSDT += 'show'
+        }
+        if(this.state.EFT){
+            classNameEFT += 'bold';
+            classNameShowEFT += 'show'
+        }
+        if(this.state.BTC){
+            classNameBTC += 'bold';
+            classNameShowBTC += 'show'
+        }
+        if(this.state.ETH){
+            classNameETH += 'bold';
+            classNameShowETH += 'show'
+        }
+        if(this.state.TRX){
+            classNameTRX += 'bold';
+            classNameShowTRX += 'show'
+        }
         return(
-            <div className="boardTrading">
-                <h3>Supports global and pupular token transactions</h3>
+            <div className="boardTrading" style={{backgroundColor:'#333'}}>
+                <h3 align='center'>Supports global and pupular token transactions</h3>
                 <div className="tokenHot container">
                     <table style={{width: '100%'}}>
                         <tr>
@@ -79,19 +174,19 @@ class BoardTrading extends Component{
                     <div className="tableTrading" >
                         <div className="titleTrading">
                             <div className="titleLeft">
-                                <button id="24HList" className="bold" onClick={this.click24HList} style={{paddingLeft: '20px'}}>24H Rising list</button>
-                                <button id="favourite" onClick={this.clickFavourite}>Favourite</button>
-                                <button id="USDT" onClick={this.clickUSDT}>USDT</button>
-                                <button id="EFT" onClick={this.clickEFT}>EFT</button>
-                                <button id="BTC" onClick={this.clickBTC}>BTC</button>
-                                <button id="ETH" onClick={this.clickETH}>ETH</button>
-                                <button id="TRX" onClick={this.clickTRX}>TRX</button>
+                                <button id="24HList" className={className24HList} onClick={this.click24HList} style={{paddingLeft: '20px'}}>24H Rising list</button>
+                                <button className={classNameFavourite} id="favourite" onClick={this.clickFavourite}>Favourite</button>
+                                <button className={classNameUSDT} id="USDT" onClick={this.clickUSDT}>USDT</button>
+                                <button className={classNameEFT} id="EFT" onClick={this.clickEFT}>EFT</button>
+                                <button className={classNameBTC} id="BTC" onClick={this.clickBTC}>BTC</button>
+                                <button className={classNameETH} id="ETH" onClick={this.clickETH}>ETH</button>
+                                <button className={classNameTRX} id="TRX" onClick={this.clickTRX}>TRX</button>
                             </div>
                             <div className="titleRight">
                                 <input placeholder="Search"></input>
                             </div>
                         </div>
-                        <div id="table24HList" className="show" style={{display:'none'}}>
+                        <div id="table24HList" className={classNameShow24HList} style={{display:'none'}}>
                             <div className="table24hList">
                                 <table style={{width:'100%'}}>
                                     <tr>
@@ -161,7 +256,7 @@ class BoardTrading extends Component{
                                 </table>
                             </div>
                         </div>
-                        <div id="tableFavourite" style={{display: 'none'}}>
+                        <div id="tableFavourite" className={classNameShowFavourite} style={{display: 'none'}}>
                             <div className="favourite">
                                 <table style={{width: '100%'}}>
                                     <tr>
@@ -183,7 +278,7 @@ class BoardTrading extends Component{
                                 </table>
                             </div>
                         </div>
-                        <div id="tableUSDT" style={{display: 'none'}}>
+                        <div id="tableUSDT" className={classNameShowUSDT} style={{display: 'none'}}>
                             <div className="USDT">
                             <table style={{width: '100%'}}>
                                 <tr>
@@ -229,7 +324,7 @@ class BoardTrading extends Component{
                             </table>
                             </div>
                         </div>
-                        <div id="tableEFT" style={{display: 'none'}}>
+                        <div id="tableEFT" className={classNameShowEFT} style={{display: 'none'}}>
                             <div className="EFT">
                             <table style={{width: '100%'}}>
                                 <tr>
@@ -275,7 +370,7 @@ class BoardTrading extends Component{
                             </table>
                             </div>
                         </div>
-                        <div id="tableBTC" style={{display: 'none'}}>
+                        <div id="tableBTC" className={classNameShowBTC} style={{display: 'none'}}>
                             <div className="BTC">
                             <table style={{width: '100%'}}>
                                 <tr>
@@ -321,7 +416,7 @@ class BoardTrading extends Component{
                             </table>
                             </div>
                         </div>
-                        <div id="tableETH" style={{display: 'none'}}>
+                        <div id="tableETH" className={classNameShowETH} style={{display: 'none'}}>
                             <div className="ETH">
                             <table style={{width: '100%'}}>
                                 <tr>
@@ -375,7 +470,7 @@ class BoardTrading extends Component{
                             </table>
                             </div>
                         </div>
-                        <div id="tableTRX" style={{display: 'none'}}>
+                        <div id="tableTRX" className={classNameShowTRX} style={{display: 'none'}}>
                             <div className="TRX">
                             <table style={{width: '100%'}}>
                                 <tr>
