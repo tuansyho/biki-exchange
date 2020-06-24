@@ -17,9 +17,9 @@ class Footer extends Component{
             <div className="footer" style={{backgroundColor:'#111', padding:'80px 0 50px 50px'}}>
                 <div className="titleFooter">
                     <div>
-                        <Link to="/">
+                        <a href="#home">
                             <img src={imageBiki} alt="..." style={{height:'30px'}}></img>
-                        </Link>
+                        </a>
                         <p style={{paddingTop: '6px'}}>Copyright © 2020 BiKi Inc. All rights reserved</p>
                     </div>
                     <div style={{paddingLeft: '60px'}}>

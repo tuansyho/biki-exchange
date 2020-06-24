@@ -32,7 +32,7 @@ function InputField(props){
                 id={name}
                 name={name}
                 value={value}
-                onChange={onChange}
+                onChange ={onChange}
                 onBlur={onBlur}
                 type={type}
                 placeholder={placeholder}

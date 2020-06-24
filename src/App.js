@@ -14,7 +14,9 @@ import BikiMiningPool from './pages/BikiMiningPool/BikiMiningPool.js';
 import BikiPower from './pages/BikiPower/BikiPower.js';
 import AppDownload from './pages/AppDownload/AppDownload.js';
 import Login from './pages/Login/Login.jsx';
-import SignUp from './pages/SignUp/SignUp.js';
+import LoginPhone from './pages/Login/LoginPhone.jsx';
+import SignUp from './pages/SignUp/SignUp.jsx';
+import SignUpPhone from './pages/SignUp/SignUpPhone.jsx';
 import AboutUs from'./pages/AboutUs/AboutUs.js';
 import BrokerPlatform from './pages/BrokerPlatform/BrokerPlatform.js';
 import ContractUS from './pages/ContractUs/ContractUs.js';
@@ -46,7 +48,9 @@ class App extends Component {
                   <Route path="/bikiPower" exact component={BikiPower}/>
                   <Route path="/appDownload" exact component={AppDownload}/>
                   <Route path="/login" exact component={Login}/>
+                  <Route path="/loginPhone" exact component={LoginPhone}/>
                   <Route path="/signUp" exact component={SignUp}/>
+                  <Route path="/signUpPhone" exact component={SignUpPhone}/>
                   <Route path="/aboutus" exact component={AboutUs}/>
                   <Route path="/announcement" exact component={Announcement}/>
                   <Route path="/aboutRates" exact component={AboutRates}/>
